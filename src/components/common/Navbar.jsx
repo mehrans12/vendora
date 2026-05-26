@@ -46,7 +46,7 @@ export const Navbar = () => {
     <header style={{ position: 'sticky', top: 0, zIndex: 100, background: '#fff', boxShadow: '0 1px 4px rgba(0,0,0,0.1)' }}>
 
       {/* ── TOP BAR ───────────────────────────────────────────────────────── */}
-      <div style={{ background: '#222', borderBottom: '1px solid #333' }}>
+      <div className="hide-mobile" style={{ background: '#222', borderBottom: '1px solid #333' }}>
         <div className="container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: '34px', fontSize: '12px' }}>
           <div style={{ color: '#aaa', display: 'flex', gap: '16px' }}>
             <span>🇵🇰 Pakistan</span>
@@ -91,7 +91,7 @@ export const Navbar = () => {
       </div>
 
       {/* ── MAIN BAR ──────────────────────────────────────────────────────── */}
-      <div className="container" style={{ display: 'flex', alignItems: 'center', gap: '24px', height: '72px' }}>
+      <div className="container" style={{ display: 'flex', alignItems: 'center', gap: '12px', height: '60px' }}>
 
         {/* Logo */}
         <Link to="/" style={{ display: 'flex', alignItems: 'center', gap: '6px', textDecoration: 'none', flexShrink: 0 }}>

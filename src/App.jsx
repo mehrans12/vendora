@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { HashRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { AuthProvider } from './context/AuthContext';
 import { CartProvider } from './context/CartContext';
 import { ToastProvider } from './context/ToastContext';
@@ -44,7 +44,7 @@ const ProtectedRoute = ({ children, requireRole }) => {
 // ─── App Router ─────────────────────────────────────────────────────────────
 function AppRouter() {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <Routes>
         {/* Public */}
         <Route path="/" element={<Home />} />
@@ -93,7 +93,7 @@ function AppRouter() {
 
       {/* Global Toast */}
       <Toast />
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 

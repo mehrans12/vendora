@@ -6,16 +6,20 @@ export const AuthContext = createContext();
 
 const seedDemoData = () => {
   const existingUsers = storage.users.getAll();
-  if (existingUsers.length > 0) return; // Already seeded
+
+  // Always ensure the admin account exists (upsert)
+  const adminExists = existingUsers.find(u => u.email === DEMO_ADMIN.email);
+  if (!adminExists) {
+    storage.users.create({ ...DEMO_ADMIN, id: 'demo-admin-1' });
+  }
+
+  if (existingUsers.length > 0) return; // Products & other demo users already seeded
 
   // Create demo seller
   const seller = storage.users.create({ ...DEMO_SELLER, id: 'demo-seller-1' });
 
   // Create demo buyer
   storage.users.create({ ...DEMO_BUYER });
-
-  // Create demo admin
-  storage.users.create({ ...DEMO_ADMIN, id: 'demo-admin-1' });
 
   // Seed products with seller id
   SEED_PRODUCTS.forEach((p) => {

@@ -116,7 +116,13 @@ export default function ProductBrowse() {
             <span style={{ fontSize: '13px', color: '#888', whiteSpace: 'nowrap' }}>
               <strong style={{ color: '#1A1A1A' }}>{filtered.length}</strong> results {search && `for "${search}"`}
             </span>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginLeft: 'auto', flexWrap: 'wrap' }}>
+            {/* Mobile filter toggle */}
+            <button className="hide-desktop" onClick={() => setSidebarOpen(s => !s)} style={{
+              padding: '5px 12px', borderRadius: '4px', border: '1px solid #E62E04',
+              background: sidebarOpen ? '#FFF0EE' : '#fff', color: '#E62E04',
+              fontSize: '12px', fontWeight: 700, cursor: 'pointer',
+            }}>🔽 {sidebarOpen ? 'Hide Filters' : 'Filters'}</button>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginLeft: 'auto', flexWrap: 'wrap', overflowX: 'auto' }}>
               <span style={{ fontSize: '12px', color: '#888', whiteSpace: 'nowrap' }}>Sort by:</span>
               {SORT_OPTIONS.map(opt => (
                 <button key={opt.value} onClick={() => setParam('sort', opt.value)} style={{
@@ -130,13 +136,18 @@ export default function ProductBrowse() {
             </div>
           </div>
 
+          {/* Mobile Filter Drawer */}
+          {sidebarOpen && (
+            <div className="hide-desktop" style={{ marginBottom: '12px' }}><Sidebar /></div>
+          )}
+
           {/* Grid */}
-          <div style={{ display: 'grid', gridTemplateColumns: '220px 1fr', gap: '12px', alignItems: 'start' }}>
+          <div className="resp-grid-2col">
             <div className="hide-mobile"><Sidebar /></div>
 
             <div>
               {filtered.length > 0 ? (
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(180px, 1fr))', gap: '12px' }}>
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(150px, 1fr))', gap: '12px' }}>
                   {filtered.map((p, i) => (
                     <div key={p.id} style={{ animation: `fadeIn 0.3s ease ${Math.min(i,10) * 0.04}s both` }}>
                       <ProductCard product={p} />

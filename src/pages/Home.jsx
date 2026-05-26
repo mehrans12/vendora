@@ -50,17 +50,18 @@ export default function Home() {
       {/* ── HERO BANNER ───────────────────────────────────────────────────── */}
       <section style={{ background: '#F5F5F5', padding: '12px 0' }}>
         <div className="container">
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 300px', gap: '12px', alignItems: 'stretch' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'minmax(0,1fr)', gap: '12px', alignItems: 'stretch' }}
+            className="hero-banner-grid">
 
             {/* Main Banner */}
-            <div style={{ borderRadius: '8px', overflow: 'hidden', background: banner.bg, padding: '40px 48px', minHeight: '260px', display: 'flex', alignItems: 'center', transition: 'all 0.5s ease', position: 'relative' }}>
+            <div style={{ borderRadius: '8px', overflow: 'hidden', background: banner.bg, padding: 'clamp(24px, 5vw, 48px) clamp(20px, 5vw, 48px)', minHeight: '220px', display: 'flex', alignItems: 'center', transition: 'all 0.5s ease', position: 'relative' }}>
               <div style={{ position: 'absolute', inset: 0, opacity: 0.08 }}>
                 <div style={{ position: 'absolute', top: '-30%', right: '-10%', width: '400px', height: '400px', borderRadius: '50%', background: '#fff' }} />
                 <div style={{ position: 'absolute', bottom: '-20%', left: '-5%', width: '250px', height: '250px', borderRadius: '50%', background: '#000' }} />
               </div>
               <div style={{ position: 'relative', zIndex: 1 }}>
-                <div style={{ fontSize: '3.5rem', marginBottom: '12px', animation: 'fadeIn 0.4s ease' }}>{banner.emoji}</div>
-                <h1 style={{ fontSize: '2.2rem', fontWeight: 900, color: '#fff', marginBottom: '8px', lineHeight: 1.1, animation: 'slideUp 0.4s ease' }}>
+                <div style={{ fontSize: 'clamp(2rem, 6vw, 3.5rem)', marginBottom: '12px', animation: 'fadeIn 0.4s ease' }}>{banner.emoji}</div>
+                <h1 style={{ fontSize: 'clamp(1.4rem, 5vw, 2.2rem)', fontWeight: 900, color: '#fff', marginBottom: '8px', lineHeight: 1.1, animation: 'slideUp 0.4s ease' }}>
                   {banner.title}
                 </h1>
                 <p style={{ fontSize: '1rem', color: 'rgba(255,255,255,0.88)', marginBottom: '20px', animation: 'slideUp 0.4s ease 0.1s both' }}>
@@ -79,8 +80,8 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Side Promos */}
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+            {/* Side Promos — hidden on mobile */}
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }} className="hide-mobile">
               <div style={{ background: 'linear-gradient(135deg,#1A1A2E,#16213E)', borderRadius: '8px', padding: '20px', flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
                 <div style={{ fontSize: '1.8rem', marginBottom: '8px' }}>🏪</div>
                 <div style={{ fontWeight: 800, color: '#fff', fontSize: '15px', marginBottom: '4px' }}>Start Selling</div>
@@ -193,12 +194,12 @@ export default function Home() {
       {/* ── SELLER CTA ────────────────────────────────────────────────────── */}
       <section style={{ padding: '48px 0', background: '#fff', borderTop: '1px solid #f0f0f0' }}>
         <div className="container">
-          <div style={{ background: 'linear-gradient(135deg,#1A1A2E 0%,#16213E 60%,#0F3460 100%)', borderRadius: '12px', padding: '48px', textAlign: 'center', position: 'relative', overflow: 'hidden' }}>
+          <div style={{ background: 'linear-gradient(135deg,#1A1A2E 0%,#16213E 60%,#0F3460 100%)', borderRadius: '12px', padding: 'clamp(24px,5vw,48px)', textAlign: 'center', position: 'relative', overflow: 'hidden' }}>
             <div style={{ position: 'absolute', top: '-20%', right: '-5%', width: '350px', height: '350px', borderRadius: '50%', background: 'rgba(230,46,4,0.12)' }} />
             <div style={{ position: 'absolute', bottom: '-30%', left: '-5%', width: '280px', height: '280px', borderRadius: '50%', background: 'rgba(255,106,0,0.1)' }} />
             <div style={{ position: 'relative', zIndex: 1 }}>
               <div style={{ fontSize: '3rem', marginBottom: '16px' }}>🚀</div>
-              <h2 style={{ fontSize: '2rem', fontWeight: 900, color: '#fff', marginBottom: '12px', letterSpacing: '-0.02em' }}>
+              <h2 style={{ fontSize: 'clamp(1.3rem, 4vw, 2rem)', fontWeight: 900, color: '#fff', marginBottom: '12px', letterSpacing: '-0.02em' }}>
                 Ready to Start Selling on VENDORA?
               </h2>
               <p style={{ fontSize: '1rem', color: 'rgba(255,255,255,0.75)', marginBottom: '28px', maxWidth: '500px', margin: '0 auto 28px' }}>

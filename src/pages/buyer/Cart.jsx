@@ -56,7 +56,7 @@ export default function Cart() {
               </div>
             </div>
           ) : (
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 320px', gap: '16px', alignItems: 'start' }}>
+            <div className="resp-grid-cart">
 
               {/* Cart Items */}
               <div style={{ background: '#fff', borderRadius: '8px', border: '1px solid #e8e8e8', overflow: 'hidden' }}>
@@ -67,7 +67,7 @@ export default function Cart() {
                 </div>
 
                 {enriched.map((item, i) => (
-                  <div key={item.productId} style={{ display: 'flex', gap: '16px', padding: '16px 20px', borderBottom: i < enriched.length - 1 ? '1px solid #f5f5f5' : 'none', alignItems: 'flex-start' }}>
+                  <div key={item.productId} style={{ display: 'flex', gap: '16px', padding: '16px 20px', borderBottom: i < enriched.length - 1 ? '1px solid #f5f5f5' : 'none', alignItems: 'flex-start', flexWrap: 'wrap' }}>
                     {/* Product Image */}
                     <Link to={`/products/${item.productId}`} style={{ flexShrink: 0 }}>
                       <div style={{ width: '88px', height: '88px', borderRadius: '6px', overflow: 'hidden', background: '#f8f8f8', border: '1px solid #e8e8e8', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>

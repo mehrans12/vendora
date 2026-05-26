@@ -66,7 +66,7 @@ export default function ProductDetails() {
             <span className="breadcrumb-curr" style={{ maxWidth: '200px', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap', display: 'inline-block' }}>{product.name}</span>
           </div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: '420px 1fr', gap: '20px', alignItems: 'start' }}>
+          <div className="resp-grid-product-detail">
 
             {/* Left — Image */}
             <div>

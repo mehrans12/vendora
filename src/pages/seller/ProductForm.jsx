@@ -72,7 +72,7 @@ export default function ProductForm() {
           </div>
 
           <div style={{ background: '#fff', borderRadius: '8px', border: '1px solid #e8e8e8', overflow: 'hidden' }}>
-            <div style={{ padding: '16px 24px', borderBottom: '1px solid #f0f0f0', background: '#fafafa', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+            <div style={{ padding: '14px 20px', borderBottom: '1px solid #f0f0f0', background: '#fafafa', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '10px' }}>
               <div>
                 <h1 style={{ fontSize: '1.1rem', fontWeight: 800, color: '#1A1A1A' }}>{isEdit ? '✏️ Edit Product' : '➕ Add New Product'}</h1>
                 <p style={{ fontSize: '12px', color: '#888', marginTop: '2px' }}>Fill in the details below to {isEdit ? 'update your' : 'list a new'} product.</p>
@@ -80,8 +80,8 @@ export default function ProductForm() {
               <Link to="/seller/products" className="btn btn-ghost btn-sm">← Cancel</Link>
             </div>
 
-            <form onSubmit={handleSubmit} style={{ padding: '24px' }}>
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 280px', gap: '24px', alignItems: 'start' }}>
+            <form onSubmit={handleSubmit} style={{ padding: '24px' }} className="product-form-inner">
+              <div className="resp-grid-product-form">
 
                 {/* Left — Details */}
                 <div>

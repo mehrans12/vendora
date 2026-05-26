@@ -58,7 +58,7 @@ export default function SellerDashboard() {
             ))}
           </div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 360px', gap: '16px', alignItems: 'start' }}>
+          <div className="resp-grid-seller-dash">
 
             {/* Recent Orders */}
             <div style={{ background: '#fff', borderRadius: '8px', border: '1px solid #e8e8e8', overflow: 'hidden' }}>

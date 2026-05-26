@@ -96,7 +96,7 @@ export default function OrdersPage() {
                     {/* Expanded Details */}
                     {expandedId === order.id && (
                       <div style={{ padding: '16px 20px', background: '#FAFAFA', borderTop: '1px solid #f0f0f0', animation: 'fadeIn 0.2s ease' }}>
-                        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px', marginBottom: '16px' }}>
+                        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '16px', marginBottom: '16px' }}>
                           <div>
                             <div style={{ fontSize: '11px', fontWeight: 700, color: '#888', textTransform: 'uppercase', marginBottom: '6px' }}>Shipping Address</div>
                             <div style={{ fontSize: '13px', color: '#1A1A1A' }}>{order.shippingAddress || '—'}</div>

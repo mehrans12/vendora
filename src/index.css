@@ -54,7 +54,7 @@
 
 /* ─── RESET ────────────────────────────────────────────────────────────────── */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; overflow-x: hidden; }
 body {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   font-size: 14px;
@@ -62,6 +62,7 @@ body {
   color: var(--ali-text);
   background: var(--ali-bg);
   -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
 }
 img { max-width: 100%; height: auto; display: block; }
 a { color: inherit; text-decoration: none; }
@@ -496,6 +497,9 @@ tbody tr:hover { background: #FAFAFA; }
 .stat-delta.down { color: var(--ali-red); }
 
 /* ─── SELLER LAYOUT ──────────────────────────────────────────────────────────── */
+.hero-banner-grid { grid-template-columns: 1fr 300px; }
+@media (max-width: 768px) { .hero-banner-grid { grid-template-columns: 1fr; } }
+
 .seller-layout { display: grid; grid-template-columns: 220px 1fr; min-height: calc(100vh - 120px); gap: 0; }
 @media (max-width: 900px) { .seller-layout { grid-template-columns: 1fr; } }
 
@@ -612,8 +616,95 @@ tbody tr:hover { background: #FAFAFA; }
 /* ─── RESPONSIVE ─────────────────────────────────────────────────────────────── */
 @media (max-width: 768px) {
   .hide-mobile  { display: none !important; }
-  .admin-sidebar { width: 60px; }
-  .admin-content { margin-left: 60px; }
-  .admin-nav-item span { display: none; }
+  .admin-sidebar { transform: translateX(-100%); width: var(--admin-sidebar); transition: transform 0.25s; }
+  .admin-sidebar.open { transform: translateX(0); }
+  .admin-content { margin-left: 0; }
+  .admin-topbar { padding: 0 12px; }
+  .admin-main { padding: 12px; }
+
+  /* Toast on mobile — full width */
+  .toast-container { left: 12px; right: 12px; top: 12px; }
+  .toast { min-width: unset; max-width: 100%; width: 100%; }
+
+  /* Seller layout stacked on mobile */
+  .seller-sidebar { border-right: none; border-bottom: 1px solid var(--ali-border); padding: 12px 0; }
+
+  /* Flash deal section wraps on mobile */
+  .section-head { flex-wrap: wrap; gap: 8px; }
+  .section-title { font-size: 15px; }
+
+  /* Stat card grid on mobile */
+  .stat-card { padding: 14px; }
+  .stat-value { font-size: 22px; }
+
+  /* Full-width buttons on mobile */
+  .btn-full-mobile { width: 100%; }
+
+  /* Table wrapper scrolls horizontally */
+  .table-wrapper { -webkit-overflow-scrolling: touch; }
+
+  /* Modal fits on small screens */
+  .modal { padding: 20px 16px; margin: 0 8px; }
+
+  /* Reduce page content padding */
+  .page-content { padding: 12px 0; }
+
+  /* Form paddings reduced on mobile */
+  .form-group { margin-bottom: 12px; }
+
+  /* Seller profile padding */
+  .seller-profile-form { padding: 16px !important; }
+
+  /* Product form padding */
+  .product-form-inner { padding: 16px !important; }
+
+  /* Unstick the order summary on mobile */
+  [style*='position: sticky'] { position: relative !important; top: auto !important; }
 }
 @media (min-width: 769px) { .hide-desktop { display: none !important; } }
+
+/* ─── RESPONSIVE GRIDS ───────────────────────────────────────────────────────── */
+.resp-grid-2col {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 16px;
+  align-items: start;
+}
+.resp-grid-cart {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 16px;
+  align-items: start;
+}
+.resp-grid-checkout {
+  display: grid;
+  grid-template-columns: 1fr 360px;
+  gap: 16px;
+  align-items: start;
+}
+.resp-grid-product-detail {
+  display: grid;
+  grid-template-columns: 420px 1fr;
+  gap: 20px;
+  align-items: start;
+}
+.resp-grid-product-form {
+  display: grid;
+  grid-template-columns: 1fr 280px;
+  gap: 24px;
+  align-items: start;
+}
+.resp-grid-seller-dash {
+  display: grid;
+  grid-template-columns: 1fr 360px;
+  gap: 16px;
+  align-items: start;
+}
+@media (max-width: 768px) {
+  .resp-grid-2col,
+  .resp-grid-cart,
+  .resp-grid-checkout,
+  .resp-grid-product-detail,
+  .resp-grid-product-form,
+  .resp-grid-seller-dash { grid-template-columns: 1fr; }
+}

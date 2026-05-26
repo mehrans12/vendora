@@ -33,7 +33,7 @@ export default function BuyerDashboard() {
         <div className="container">
           <div className="breadcrumb"><Link to="/">Home</Link><span className="breadcrumb-sep">›</span><span className="breadcrumb-curr">My Account</span></div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: '220px 1fr', gap: '16px', alignItems: 'start' }}>
+          <div className="resp-grid-2col">
 
             {/* Sidebar */}
             <div style={{ background: '#fff', borderRadius: '8px', border: '1px solid #e8e8e8', overflow: 'hidden' }}>

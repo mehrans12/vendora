@@ -111,7 +111,7 @@ export default function Checkout() {
         <div className="container">
           <div className="breadcrumb"><Link to="/">Home</Link><span className="breadcrumb-sep">›</span><Link to="/cart">Cart</Link><span className="breadcrumb-sep">›</span><span className="breadcrumb-curr">Checkout</span></div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 360px', gap: '16px', alignItems: 'start' }}>
+          <div className="resp-grid-checkout">
 
             {/* Form */}
             <div style={{ background: '#fff', borderRadius: '8px', border: '1px solid #e8e8e8', overflow: 'hidden' }}>
